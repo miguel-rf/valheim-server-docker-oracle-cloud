@@ -33,8 +33,9 @@ case "$ARCH" in
         # to prevent thread races and deadlocks.
         # BOX64_DYNAREC_STRONGMEM:
         #   1 = basic memory barriers
-        #   2 = strict memory ordering (recommended for Unity/Valheim stability)
-        export BOX64_DYNAREC_STRONGMEM="${BOX64_DYNAREC_STRONGMEM:-2}"
+        #   2 = memory barriers on writes and SIMD
+        #   3 = regular memory barriers across code blocks (recommended for Valheim Unity on Ampere A1)
+        export BOX64_DYNAREC_STRONGMEM="${BOX64_DYNAREC_STRONGMEM:-3}"
         export BOX64_DYNAREC_BIGBLOCK="${BOX64_DYNAREC_BIGBLOCK:-0}"
         export BOX64_DYNAREC_BLEEDING_EDGE="${BOX64_DYNAREC_BLEEDING_EDGE:-0}"
         export BOX64_DYNAREC_SAFEFLAGS="${BOX64_DYNAREC_SAFEFLAGS:-2}"
